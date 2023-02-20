@@ -24,10 +24,10 @@ import hashlib
 -----------------------------------'''
 
 # Server Information
-LOCAL_SERVER_IP = "192.168.20.1"
+LOCAL_SERVER_IP = "192.168.100.1"
 HTTP_SERVER_PORT = 80
 HTTPS_SERVER_PORT = 443
-REMOTE_SERVER_DOMAIN = "captive.ddns.net"
+REMOTE_SERVER_DOMAIN = "192.168.100.1:8000"
 try:
     REMOTE_SERVER_IP = socket.gethostbyname(REMOTE_SERVER_DOMAIN)
 except socket.gaierror:
@@ -85,9 +85,9 @@ CREDENTIALS_SIGNIN = True
 SQLITE3_DATABASE_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'users.db')
 
 # Create remote link
-REMOTE_SERVER_LINK = "https://" + REMOTE_SERVER_DOMAIN + ":" + str(HTTPS_SERVER_PORT) + "/"
-if str(HTTPS_SERVER_PORT) == "443":
-    REMOTE_SERVER_LINK = "https://" + REMOTE_SERVER_DOMAIN + "/"
+REMOTE_SERVER_LINK = "http://" + REMOTE_SERVER_DOMAIN + ":" + str(HTTPS_SERVER_PORT) + "/"
+# if str(HTTPS_SERVER_PORT) == "443":
+#     REMOTE_SERVER_LINK = "http://" + REMOTE_SERVER_DOMAIN + "/"
 
 # Authorizations Daemon
 AUTHDAEMON_INTERVAL_CHECK = 10
@@ -1007,7 +1007,7 @@ class RedirectPortal(CaptivePortal):
 
         # If file not found
         if data == None:
-            data, headers, status = self.do_redirect(REMOTE_SERVER_LINK, "<p>Redirecting to captive portal...</p>", 2)
+            data, headers, status = self.do_redirect(REMOTE_SERVER_LINK, "<p>Redirecting to vrquin captive portal...</p>", 2)
 
         return data, headers, status;
 
