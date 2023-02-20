@@ -86,8 +86,8 @@ SQLITE3_DATABASE_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)),
 
 # Create remote link
 REMOTE_SERVER_LINK = "http://" + REMOTE_SERVER_DOMAIN + ":" + str(HTTPS_SERVER_PORT) + "/"
-# if str(HTTPS_SERVER_PORT) == "443":
-#     REMOTE_SERVER_LINK = "http://" + REMOTE_SERVER_DOMAIN + "/"
+if str(HTTPS_SERVER_PORT) == "443":
+    REMOTE_SERVER_LINK = "http://" + REMOTE_SERVER_DOMAIN + "/"
 
 # Authorizations Daemon
 AUTHDAEMON_INTERVAL_CHECK = 10
