@@ -1,45 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<!-- Required meta tags -->
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<base href="/">
-		<meta http-equiv="Refresh" content="{{seconds}}; URL={{location}}">
 
-		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" href="css/bootstrap.lumen.min.css">
-		<link rel="stylesheet" href="css/custom.css">
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<base href="/">
+	<!-- <meta http-equiv="Refresh" content="{{seconds}}; URL={{location}}"> -->
 
-		<title>Redirect</title>
-	</head>
-	<body class="text-center">
-		<div class="portal-wrapper">
-			<img class="mb-4" src="img/portal.png" alt="" width="72" height="72">
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="css/bootstrap.lumen.min.css">
+	<link rel="stylesheet" href="css/custom.css">
 
-			<h1 class="h3 mb-3 font-weight-normal">Redirect</h1>
-			{{message}}<br>
-			<br>
-			<span id="redirect-info" style="display: none;"></span>
+	<title>Welcome to vrquin</title>
+</head>
 
-			<p class="mt-5 mb-3 text-muted">{{footer-note}}</p>
-		</div>
+<body class="text-center">
+	<div class="portal-wrapper">
+		<img class="mb-4" src="img/portal.png" alt="" width="95" height="95">
 
-		<!-- JavaScript -->
-		<script src="js/jquery.min.js"></script>
-		<script src="js/popper.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<script type="text/javascript">
-			setTimeout(function() {window.location = "{{location}}"}, {{seconds}} * 1000);
-			if ({{seconds}} > 2) {
-				var seconds = {{seconds}};
-				var info = document.getElementById('redirect-info');
-				info.style.display = "block";
-				setInterval(function () {
-					info.textContent = "Redirecting in " + seconds + " seconds..."
-					if (seconds > 0) seconds -= 1;
-				} , 1000)
-			}
-		</script>
-	</body>
+		<h1 class="h3 mb-3 font-weight-normal">Welcome to vrquin</h1>
+		{{message}}<br>
+		<br>
+		<span id="redirect-info" style="display: none;"></span>
+		<form action="http://192.168.100.1:8000/">
+			<input type="submit" value="Go to vrquin login page" />
+		</form>
+
+		<p class="mt-5 mb-3 text-muted">{{footer-note}}</p>
+	</div>
+
+	<!-- JavaScript -->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		setTimeout(function () { window.location = "{{location}}" }, { seconds } * 1000);
+		if ({ seconds } > 2) {
+			var seconds = { seconds };
+			var info = document.getElementById('redirect-info');
+			info.style.display = "block";
+			setInterval(function () {
+				info.textContent = "Redirecting in " + seconds + " seconds..."
+				if (seconds > 0) seconds -= 1;
+			}, 1000)
+		}
+	</script>
+</body>
+
 </html>
